@@ -1,5 +1,5 @@
 import tkinter
-
+import time
 import socket
 import threading
 import tkinter.scrolledtext
@@ -26,6 +26,7 @@ class Client:
         receive_thread = threading.Thread(target=self.receive)
 
         gui_thread.start()
+        time.sleep(1)
         receive_thread.start()
 
     def gui_loop(self):
