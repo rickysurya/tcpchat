@@ -21,7 +21,7 @@ def broadcast(message):
 def handle(client):
     while True:
         try: 
-            message = client.recv(1024).decode('utf-8')
+            message = client.recv(1024)
             print(f'{message}')
             broadcast(message)
         except:
@@ -38,7 +38,7 @@ def receive():
         client, address = server.accept()
         print(f"Connected with {str(address)}")
         client.send("NICK".encode('utf-8'))
-        nickname = client.recv(1024)
+        nickname = client.recv(1024).decode('utf-8')
         nicknames.append(nickname)
         clients.append(client)
 

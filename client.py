@@ -1,5 +1,5 @@
 import tkinter
-import time
+
 import socket
 import threading
 import tkinter.scrolledtext
@@ -10,6 +10,7 @@ PORT = 9900
 
 class Client:
     def __init__(self, host, port):
+
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((host, port))
 
@@ -25,7 +26,6 @@ class Client:
         receive_thread = threading.Thread(target=self.receive)
 
         gui_thread.start()
-        time.sleep(1)
         receive_thread.start()
 
     def gui_loop(self):
